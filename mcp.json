@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "mcp-hashlib": {
+      "command": "mcp-hashlib",
+      "env": {}
+    }
+  }
+}
