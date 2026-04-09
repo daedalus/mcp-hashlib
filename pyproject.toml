@@ -14,6 +14,7 @@ authors = [
 ]
 dependencies = [
     "mcp>=1.4.0",
+    "fastmcp>=2.0",
 ]
 
 [project.optional-dependencies]
@@ -37,7 +38,7 @@ lint = [
 all = ["mcp-hashlib[dev,test,lint]"]
 
 [project.scripts]
-mcp-hashlib = "mcp_hashlib.__main__:main"
+mcp-hashlib = "mcp_hashlib.__main__:run"
 
 [project.urls]
 Homepage = "https://github.com/daedalus/mcp-hashlib"

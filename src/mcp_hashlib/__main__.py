@@ -1,6 +1,9 @@
 from .tools import main
 
-if __name__ == "__main__":
-    import asyncio
 
-    asyncio.run(main())
+def run():
+    main()
+
+
+if __name__ == "__main__":
+    run()
