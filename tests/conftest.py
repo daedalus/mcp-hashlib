@@ -1,11 +1,11 @@
 import pytest
 
-from mcp_hashlib.tools import app
+from mcp_hashlib.tools import server
 
 
 @pytest.fixture
 def mock_server():
-    return app
+    return server
 
 
 @pytest.fixture

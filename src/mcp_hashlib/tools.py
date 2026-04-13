@@ -1,5 +1,6 @@
 import hashlib
 import io
+from typing import Any
 
 from fastmcp import FastMCP
 
@@ -204,8 +205,27 @@ def hash_properties(algorithm: str) -> str:
     return json.dumps(props, indent=2)
 
 
-def main():
+def main() -> None:
     server.run()
 
 
 mcp = server
+
+
+async def call_tool(name: str, arguments: dict[str, Any]) -> list[Any]:
+    """Call an MCP tool by name with arguments.
+
+    Args:
+        name: The name of the tool to call.
+        arguments: Dictionary of arguments to pass to the tool.
+
+    Returns:
+        A list of text content results from the tool call.
+    """
+    try:
+        result = await server.call_tool(name, arguments)
+        return result.content
+    except Exception as e:
+        if "not found" in str(e).lower() or "unknown" in str(e).lower():
+            raise ValueError(f"Unknown tool: {name}") from e
+        raise
